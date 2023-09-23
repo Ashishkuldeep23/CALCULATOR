@@ -4,21 +4,21 @@
     box-sizing: border-box;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     width: 5px;
     height: 5px;
 
 }
 
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
     border-radius: 100px;
     border: 1px solid black;
     background-color: #fff;
 }
 
 
-*::selection{
+*::selection {
     background-color: transparent;
 }
 
@@ -31,7 +31,7 @@ html, body {
 }
 
 
-#mode{
+#mode {
     position: absolute;
     right: 5%;
     top: 1%;
@@ -42,8 +42,8 @@ html, body {
     transition: .35s all;
 }
 
-#mode:active{
-   scale: .8;
+#mode:active {
+    scale: .8;
 }
 
 
@@ -76,7 +76,7 @@ html, body {
 
     display: grid;
 
-    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 
     gap: 5px;
@@ -84,7 +84,7 @@ html, body {
     transition: .35s all;
 }
 
-#calculator:hover{
+#calculator:hover {
     box-shadow: 5px 5px 10px gray;
 }
 
@@ -115,12 +115,12 @@ html, body {
     border-radius: 5vh;
 }
 
-#calculator>div:active{
+#calculator>div:active {
     scale: 0.8;
 }
 
 
-#zero{
+#zero {
 
     height: 29vh !important;
     grid-row-start: 5;
@@ -129,7 +129,7 @@ html, body {
 
 
 
-#equal{
+#equal {
     height: 29vh !important;
     grid-row-start: 5;
     grid-row-end: 7;
@@ -138,13 +138,13 @@ html, body {
 
 
 
-.sym{
+.sym {
     overflow: hidden;
     position: relative;
 }
 
 
-.sym:hover{
+.sym:hover {
     padding-left: 0rem !important;
     padding-top: 0rem !important;
     padding-right: 2rem !important;
@@ -152,7 +152,7 @@ html, body {
 }
 
 
-.sym > .sing_about{
+.sym>.sing_about {
     font-size: 1.3rem;
     position: absolute;
     top: 0%;
@@ -164,7 +164,7 @@ html, body {
 }
 
 
-.sym:hover > .sing_about{
+.sym:hover>.sing_about {
     top: 65%;
     left: 40%;
 }
@@ -182,11 +182,11 @@ html, body {
     place-items: end !important;
     padding: 0 1vh;
     position: relative;
-} 
+}
 
 
 
-#output_div:hover{
+#output_div:hover {
     scale: 1 !important;
     border-radius: 2vh !important;
     padding-left: 0rem !important;
@@ -194,7 +194,7 @@ html, body {
 }
 
 
-#output_div>span{
+#output_div>span {
     font-size: 1.0rem;
     font-weight: bold;
     margin-top: 0.3rem;
@@ -202,10 +202,10 @@ html, body {
 
 
 
-#output_div>#out_btn_div{
+#output_div>#out_btn_div {
     position: absolute;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
 
     background-color: yellow;
 
@@ -217,7 +217,7 @@ html, body {
 }
 
 
-#out_btn_div>button{
+#out_btn_div>button {
     padding: 1vh 1.5vh;
     height: 50%;
     width: 100%;
@@ -228,7 +228,7 @@ html, body {
 }
 
 
-#out_btn_div>button:hover{
+#out_btn_div>button:hover {
     padding-left: 1.7rem;
     padding-top: 1.2rem;
     border-radius: 1.5vh;
@@ -237,19 +237,19 @@ html, body {
 }
 
 
-#out_btn_div>button:first-child{
+#out_btn_div>button:first-child {
     color: darkblue;
     border: 2px solid darkblue;
 }
 
-#out_btn_div>button:last-child{
+#out_btn_div>button:last-child {
     color: darkred;
     border: 2px solid darkred;
     /* display: none; */
 }
 
 
-#current_out{
+#current_out {
     width: 80%;
     overflow-x: auto;
     text-align: end;
@@ -262,17 +262,20 @@ html, body {
 
 @media (max-width : 440px) {
 
-
-
-    #calculator{
+    #calculator {
         width: 50vh;
         height: 85vh;
     }
-    
+
 
     #calculator>div {
         font-size: 3rem;
         height: 12.7vh;
+    }
+
+    #calculator>div:hover {
+        padding-left: 1.5rem;
+        padding-top: 0.7rem;
     }
 
     #out_btn_div>button {
@@ -290,9 +293,27 @@ html, body {
 @media (max-width : 340px) {
 
 
+    #calculator {
+        height: 75vh;
+        width: 40vh;
+    }
 
-    #calculator{
-        width: 45vh;
+    #calculator>div {
+        font-size: 2.5rem;
+        height: 10.7vh;
+    }
+
+    #calculator>div:hover {
+        padding-left: 1rem;
+        padding-top: 0.7rem;
+    }
+
+    #out_btn_div>button {
+        padding: 0;
+    }
+
+    #equal {
+        height: 23.6vh !important;
     }
 
 
@@ -301,9 +322,8 @@ html, body {
 
 @media (max-width : 269px) {
 
-
-
-    #calculator{
+    #calculator {
+        height: 65vh;
         width: 30vh;
     }
 
@@ -311,6 +331,18 @@ html, body {
         font-size: 2.5rem;
     }
 
+    #out_btn_div>button {
+        font-size: 0.6rem;
+        padding: 0;
+    }
+
+    #calculator>div {
+        font-size: 2.5rem;
+        height: 8.7vh;
+    }
+
+    #equal {
+        height: 19.6vh !important;
+    }
 
 }
-

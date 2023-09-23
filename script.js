@@ -91,7 +91,7 @@ class React {
 
     updateFirstNum(firstTime = false, num = 0) {
 
-        console.log(firstTime , num)
+        // console.log(firstTime , num)
 
         let outAfterAdd;
         if (firstTime) {
