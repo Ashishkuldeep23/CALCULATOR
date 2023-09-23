@@ -1,0 +1,316 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar{
+    width: 5px;
+    height: 5px;
+
+}
+
+
+::-webkit-scrollbar-thumb{
+    border-radius: 100px;
+    border: 1px solid black;
+    background-color: #fff;
+}
+
+
+*::selection{
+    background-color: transparent;
+}
+
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-size: 16px;
+    background-color: #ccc;
+}
+
+
+#mode{
+    position: absolute;
+    right: 5%;
+    top: 1%;
+    padding: 0.5vh;
+    border-radius: .5vh;
+    background-color: black;
+    color: white;
+    transition: .35s all;
+}
+
+#mode:active{
+   scale: .8;
+}
+
+
+#calcu_main {
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+
+    /* background-color: red; */
+
+    background-image: url("https://res.cloudinary.com/dlvq8n2ca/image/upload/v1695482080/qzglyysy2v8xrzebfr3j.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: grid;
+    place-items: center;
+}
+
+
+
+
+
+#calculator {
+    height: 90vh;
+    width: 65vh;
+    /* background-color: red; */
+
+    border: 2px solid darkmagenta;
+    border-radius: 2vh;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+
+    gap: 5px;
+    padding: 5px;
+    transition: .35s all;
+}
+
+#calculator:hover{
+    box-shadow: 5px 5px 10px gray;
+}
+
+
+#calculator>div {
+
+    height: 14vh;
+
+    background-color: yellow;
+    border: 1px solid;
+    border-radius: 2vh;
+
+    overflow: hidden;
+
+    font-size: 4rem;
+
+    display: grid;
+    place-items: center;
+    transition: .35s all;
+}
+
+#calculator>div:hover {
+    scale: 1.14;
+    box-shadow: 5px 5px 10px gray;
+
+    padding-left: 3rem;
+    padding-top: 1rem;
+    border-radius: 5vh;
+}
+
+#calculator>div:active{
+    scale: 0.8;
+}
+
+
+#zero{
+
+    height: 29vh !important;
+    grid-row-start: 5;
+    grid-row-end: 7;
+}
+
+
+
+#equal{
+    height: 29vh !important;
+    grid-row-start: 5;
+    grid-row-end: 7;
+    grid-column-start: 4;
+}
+
+
+
+.sym{
+    overflow: hidden;
+    position: relative;
+}
+
+
+.sym:hover{
+    padding-left: 0rem !important;
+    padding-top: 0rem !important;
+    padding-right: 2rem !important;
+    padding-bottom: 1rem !important;
+}
+
+
+.sym > .sing_about{
+    font-size: 1.3rem;
+    position: absolute;
+    top: 0%;
+    left: -100%;
+    color: darkblue !important;
+    z-index: 99;
+    font-weight: bold;
+    transition: .35s all;
+}
+
+
+.sym:hover > .sing_about{
+    top: 65%;
+    left: 40%;
+}
+
+
+
+#output_div {
+    /* height: 16vh !important; */
+
+    grid-column-start: 1;
+    grid-column-end: 5;
+
+    text-align: flex-end;
+
+    place-items: end !important;
+    padding: 0 1vh;
+    position: relative;
+} 
+
+
+
+#output_div:hover{
+    scale: 1 !important;
+    border-radius: 2vh !important;
+    padding-left: 0rem !important;
+    padding-top: 0rem !important;
+}
+
+
+#output_div>span{
+    font-size: 1.0rem;
+    font-weight: bold;
+    margin-top: 0.3rem;
+}
+
+
+
+#output_div>#out_btn_div{
+    position: absolute;
+    top:0;
+    left:0;
+
+    background-color: yellow;
+
+    overflow: hidden;
+    height: 100%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+#out_btn_div>button{
+    padding: 1vh 1.5vh;
+    height: 50%;
+    width: 100%;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background-color: yellow;
+    transition: 0.35s all;
+}
+
+
+#out_btn_div>button:hover{
+    padding-left: 1.7rem;
+    padding-top: 1.2rem;
+    border-radius: 1.5vh;
+
+    background-color: cyan;
+}
+
+
+#out_btn_div>button:first-child{
+    color: darkblue;
+    border: 2px solid darkblue;
+}
+
+#out_btn_div>button:last-child{
+    color: darkred;
+    border: 2px solid darkred;
+    /* display: none; */
+}
+
+
+#current_out{
+    width: 80%;
+    overflow-x: auto;
+    text-align: end;
+    font-family: monospace;
+    position: relative;
+}
+
+
+
+
+@media (max-width : 440px) {
+
+
+
+    #calculator{
+        width: 50vh;
+        height: 85vh;
+    }
+    
+
+    #calculator>div {
+        font-size: 3rem;
+        height: 12.7vh;
+    }
+
+    #out_btn_div>button {
+        font-size: 1rem;
+    }
+
+    #equal {
+        height: 26.6vh !important;
+    }
+
+}
+
+
+
+@media (max-width : 340px) {
+
+
+
+    #calculator{
+        width: 45vh;
+    }
+
+
+}
+
+
+@media (max-width : 269px) {
+
+
+
+    #calculator{
+        width: 30vh;
+    }
+
+    #calculator>div {
+        font-size: 2.5rem;
+    }
+
+
+}
+
