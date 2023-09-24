@@ -62,9 +62,11 @@ class React {
 
     updateUI(obj = this.state) {
 
+        // console.log(obj)
+
         // let preExpressions = document.getElementById("previous_out")
         // // Expressions depends upon the symbol cliced btn -->
-        document.getElementById("previous_out").innerHTML = `${obj.firstNum} ${this.isSymboleClicked ? obj.symbol : "sy"} ${obj.secondNum}`
+        document.getElementById("previous_out").innerHTML = `${obj.firstNum} ${this.isSymboleClicked ? obj.symbol : "sy"} ${obj.secondNum} = ${obj.result}`
 
         // // // Show the current things -->
         document.getElementById("current_out").innerHTML = `${obj.curShow}`
@@ -165,7 +167,8 @@ class React {
 
         // // // Back btn hide -->
         document.getElementById("back_btn").style.display = "none"
-        alert("All Data Removed ☑️")
+
+        // alert("All Data Removed ☑️")  // // // Not using now
     }
 
 
@@ -275,14 +278,24 @@ class React {
 
         let history = this.historyData
 
+        // console.log(history)
+
+        let sendHistoryObj = { result : history[history.length-1].result }
+
         if (history.length > 0) {
 
             // // // If history array have only one data
-            if(history.length === 1){
+            if(history.length === 3){
                 document.getElementById("back_btn").style.display = "none"
             }
 
-            this.state = history[history.length - 1]     // // // Update the state with history of last.
+            // this.state = history[history.length - 1]     // // // Update the state with history of last.
+
+            sendHistoryObj.firstNum = history[history.length - 2].firstNum
+            sendHistoryObj.secondNum = history[history.length - 2].secondNum
+            sendHistoryObj.curShow = history[history.length - 2].curShow
+            sendHistoryObj.symbol = history[history.length - 2].symbol
+
             this.historyData.length--       // // // Reduce this size of history.
         } else {
             
@@ -293,7 +306,10 @@ class React {
         // console.log(this.state)
         // console.log("Back")
 
-        this.updateUI()
+
+        // console.log(sendHistoryObj)
+
+        this.updateUI(sendHistoryObj)
 
     }
 
@@ -333,7 +349,7 @@ react.updateUI()   // // // Upadte ui if getting data --->
 // // // All Key Event and corresponding result happend
 window.addEventListener("keydown" , (e)=>{
 
-    console.log(e)
+    // console.log(e)
     // if(e.key === "7"){
     //     react.setState("anyNum" , 7)
     // }
