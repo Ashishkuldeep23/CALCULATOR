@@ -61,9 +61,6 @@ class React {
 
 
     updateUI(obj = this.state) {
-
-        // console.log(obj)
-
         // let preExpressions = document.getElementById("previous_out")
         // // Expressions depends upon the symbol cliced btn -->
         document.getElementById("previous_out").innerHTML = `${obj.firstNum} ${this.isSymboleClicked ? obj.symbol : "sy"} ${obj.secondNum} = ${obj.result}`
@@ -74,6 +71,18 @@ class React {
         // // // Scroll curentShow div to left --->
         let currentShowDiv = document.getElementById("current_out")
         currentShowDiv.scrollLeft = currentShowDiv.scrollWidth
+    }
+
+    updateTotalCalculations(){
+
+        let total_cal = localStorage.getItem("total_calculation")
+
+        // console.log(total_cal)
+
+        if(total_cal){
+            total_cal = JSON.parse(total_cal)
+            document.getElementById("total_cal").innerHTML = `Total Calculatios are : <span>${total_cal}</span>`
+        }
     }
 
 
@@ -271,6 +280,20 @@ class React {
         // // // Make btn visiable
         document.getElementById("back_btn").style.display = "block"
 
+        // // // set total calclation --->
+
+        let getTotalCal = localStorage.getItem("total_calculation")
+
+        if(getTotalCal){
+            getTotalCal = JSON.parse(getTotalCal)
+            getTotalCal++
+            localStorage.setItem("total_calculation" , JSON.stringify(getTotalCal))
+        }else{
+            localStorage.setItem("total_calculation" , JSON.stringify(1))
+        }
+
+        this.updateTotalCalculations()
+
     }
 
 
@@ -343,6 +366,7 @@ if(getHistoryFromLoaclHost){
 }
 react.updateUI()   // // // Upadte ui if getting data --->
 
+react.updateTotalCalculations()  // // // Update calculations
 
 
 

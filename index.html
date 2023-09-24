@@ -29,40 +29,45 @@
             </div>
 
             
-            <div onclick="react.setState('anyNum' , 7)" id="7">7</div>
-            <div onclick="react.setState('anyNum' , 8)" id="8">8</div>
-            <div onclick="react.setState('anyNum' , 9)" id="9">9</div>
-            <div id="4" class="sym" onclick="react.singleClear()"> <span class="sing_about">Clear</span> C</div>
+            <div onclick="react.setState('anyNum' , 7)" >7</div>
+            <div onclick="react.setState('anyNum' , 8)" >8</div>
+            <div onclick="react.setState('anyNum' , 9)" >9</div>
+            <div id="clear" class="sym" onclick="react.singleClear()"> <span class="sing_about">Clear</span> X</div>
             <!-- <div class="sym"> <span class="sing_about">Power</span> Pw</div> -->
             
-            <div onclick="react.setState('anyNum' , 4)" id="4">4</div>
-            <div onclick="react.setState('anyNum' , 5)" id="5">5</div>
-            <div onclick="react.setState('anyNum' , 6)" id="6">6</div>
+            <div onclick="react.setState('anyNum' , 4)" >4</div>
+            <div onclick="react.setState('anyNum' , 5)" >5</div>
+            <div onclick="react.setState('anyNum' , 6)" >6</div>
             <div class="sym" onclick="react.setState('symbol' , '**')"> <span class="sing_about">Power</span> Pw</div>
   
             <!-- <div class="sym"> <span class="sing_about">MOD</span> Mod</div> -->
             
-            <div onclick="react.setState('anyNum' , 1); " id="1">1</div>
-            <div onclick="react.setState('anyNum' , 2);" id="2">2</div>
-            <div onclick="react.setState('anyNum' , 3); " id="3">3</div>
+            <div onclick="react.setState('anyNum' , 1);">1</div>
+            <div onclick="react.setState('anyNum' , 2);" >2</div>
+            <div onclick="react.setState('anyNum' , 3);">3</div>
             <div class="sym" onclick="react.setState('symbol' , '%')"> <span class="sing_about">MOD</span> Mo</div>
             <!-- <div class="sym"> <span class="sing_about">Divide</span> <i class="ri-divide-line"></i></div> -->
 
-            <div onclick="react.setState('anyNum' , 0)" id="">0</div>
-            <div class="sym" id="plus" onclick="react.setState('symbol' , '+')"> <span class="sing_about">Plus</span> <i class="ri-add-line"></i></div>
+            <div onclick="react.setState('anyNum' , 0)">0</div>
+            <div class="sym" onclick="react.setState('symbol' , '+')"> <span class="sing_about">Plus</span> <i class="ri-add-line"></i></div>
 
-            <div class="sym" id="minus" onclick="react.setState('symbol' , '-')"> <span class="sing_about">Minus</span> <i class="ri-subtract-line"></i></div>
+            <div class="sym" onclick="react.setState('symbol' , '-')"> <span class="sing_about">Minus</span> <i class="ri-subtract-line"></i></div>
 
-            <div onclick="react.setState('anyNum' , '.')" id="">.</div>
-            <div class="sym" id="divide" onclick="react.setState('symbol' , '/')"> <span class="sing_about">Divide</span> <i class="ri-divide-line"></i></div>
+            <div onclick="react.setState('anyNum' , '.')">.</div>
+            <div class="sym" onclick="react.setState('symbol' , '/')"> <span class="sing_about">Divide</span> <i class="ri-divide-line"></i></div>
 
             <div class="sym" onclick="react.setState('symbol' , '*')"> <span class="sing_about">Multi</span> <i class="ri-close-line"></i></div>
 
-            <div class="sym" id="equal" onclick="react.setResult()"> <span class="sing_about">Equal</span> <i class="ri-equal-line"></i></div>
+            <div class="sym" id="equal" onclick="react.setResult()"><span class="sing_about">Equal</span> <i class="ri-equal-line"></i></div>
             
         </div>
 
+        <p id="total_cal"></p>
+
     </section>
+
+
+    <span id="credit">By : Ashish Kuldeep</span>
 
     <script src="./script.js"></script>
 </body>
