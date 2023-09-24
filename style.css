@@ -303,7 +303,7 @@ html, body {
     color: cyan;
     text-decoration: underline;
     font-family: cursive;
-    position: absolute;
+    position: fixed;
     right: 5px;
     bottom: 3px;
 }
