@@ -7,6 +7,7 @@ function changeMode( mode = isBalck) {
     if (!mode) {
         // // // Dark Mode ---->
 
+        document.querySelector("html").style.backgroundColor = "#252222"
         document.querySelector("body").style.backgroundColor = "#252222"
         document.querySelector("#mode").innerHTML = "Light"
         document.querySelector("#mode").style.backgroundColor = "white"
@@ -17,6 +18,7 @@ function changeMode( mode = isBalck) {
     } else {
         // // // Light Mode ---->
 
+        document.querySelector("html").style.backgroundColor = "#ccc"
         document.querySelector("body").style.backgroundColor = "#ccc"
         document.querySelector("#mode").innerHTML = "Dark"
         document.querySelector("#mode").style.backgroundColor = "black"
