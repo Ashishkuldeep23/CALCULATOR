@@ -13,11 +13,13 @@ function changeMode( mode = isBalck) {
         document.querySelector("#mode").style.backgroundColor = "white"
         document.querySelector("#mode").style.color = "black"
         document.querySelector("#calculator").style.borderColor = "yellowgreen"
+
+        document.querySelector(":root").style.setProperty("--theme" , "#fefe27ea")
         
         localStorage.setItem("darkMode" , JSON.stringify(true) )
     } else {
         // // // Light Mode ---->
-
+        
         document.querySelector("html").style.backgroundColor = "#ccc"
         document.querySelector("body").style.backgroundColor = "#ccc"
         document.querySelector("#mode").innerHTML = "Dark"
@@ -25,6 +27,8 @@ function changeMode( mode = isBalck) {
         document.querySelector("#mode").style.color = "white"
         document.querySelector("#calculator").style.borderColor = "darkmagenta"
         
+        document.querySelector(":root").style.setProperty("--theme" , "#00ffc1")
+
         localStorage.removeItem("darkMode")
     }
 

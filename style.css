@@ -2,6 +2,25 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bodoni+Moda:opsz@6..96&family=Handlee&family=Kosugi+Maru&display=swap');
 
+/* dark */
+/* :root{
+    --theme:#fefe27ea;
+    --text:black;
+} */
+
+
+/* white */
+:root {
+    --theme: #00ffc1c7;
+    --text: black;
+}
+
+/* :root {
+    --theme: #ffd000;
+    --dark: #fff;
+    --text: black;
+}
+ */
 
 
 * {
@@ -44,6 +63,10 @@ html, body {
     width: 100%;
     font-size: 16px;
     background-color: #ccc;
+
+    background-image: url("https://res.cloudinary.com/dlvq8n2ca/image/upload/v1695482080/qzglyysy2v8xrzebfr3j.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 
@@ -70,9 +93,9 @@ html, body {
 
     /* background-color: red; */
 
-    background-image: url("https://res.cloudinary.com/dlvq8n2ca/image/upload/v1695482080/qzglyysy2v8xrzebfr3j.png");
+    /* background-image: url("https://res.cloudinary.com/dlvq8n2ca/image/upload/v1695482080/qzglyysy2v8xrzebfr3j.png");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
 
     display: grid;
     place-items: center;
@@ -109,7 +132,10 @@ html, body {
 #calculator>div {
 
     height: 14vh;
-    background-color: #fefe27ea;
+    background-color: var(--theme);
+    color: var(--text);
+
+    text-shadow: 2px 2px 2px var(--text);
 
     border: 1px solid;
     border-radius: 2vh;
@@ -175,12 +201,17 @@ html, body {
 }
 
 
+.sym i {
+    color: darkblue !important;
+    filter: drop-shadow(3px 3px 2px var(--text));
+}
+
 .sym>.sing_about {
     font-size: 1.3rem;
     position: absolute;
     top: 0%;
     left: -100%;
-    color: darkblue !important;
+    color: var(--text) !important;
     z-index: 99;
     font-weight: bold;
     transition: .35s all;
@@ -200,6 +231,7 @@ html, body {
     grid-column-end: 5;
     text-align: flex-end;
 
+    text-shadow: unset !important;
     place-items: end !important;
     padding: 0 1vh;
     position: relative;
@@ -244,7 +276,9 @@ html, body {
     font-size: 1.3rem;
     font-weight: bold;
 
-    background-color: #fefe27ea;
+    background-color: var(--theme);
+    text-shadow: 1px 1px 1px var(--text);
+    font-weight: bold;
 
     backdrop-filter: blur(20px) saturate(1.7);
     transition: 0.35s all;
@@ -328,6 +362,10 @@ html, body {
 
     }
 
+    #out_btn_div>button {
+        font-size: 1rem;
+    }
+
 }
 
 
@@ -360,7 +398,7 @@ html, body {
     }
 
     #out_btn_div>button {
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 
     .sym>.sing_about {
@@ -407,7 +445,7 @@ html, body {
     }
 
     #out_btn_div>button {
-        font-size: 1rem;
+        font-size: 0.7rem;
     }
 
 
