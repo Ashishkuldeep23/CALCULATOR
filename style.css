@@ -28,6 +28,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Kosugi Maru', sans-serif;
+    transition: 0.7s all;
 }
 
 *::-webkit-scrollbar {
@@ -97,8 +98,13 @@ html, body {
     background-repeat: no-repeat;
     background-size: cover; */
 
-    display: grid;
-    place-items: center;
+    /* display: grid;
+    place-items: center; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 
@@ -131,11 +137,11 @@ html, body {
 
 #calculator>div {
 
-    height: 14vh;
+    height: 13.5vh;
     background-color: var(--theme);
     color: var(--text);
 
-    text-shadow: 2px 2px 2px var(--text);
+    text-shadow: 2px 2px 2px white;
 
     border: 1px solid;
     border-radius: 2vh;
@@ -178,7 +184,7 @@ html, body {
 
 
 #equal {
-    height: 29vh !important;
+    height: 28vh !important;
     grid-row-start: 5;
     grid-row-end: 7;
     grid-column-start: 4;
@@ -211,7 +217,8 @@ html, body {
     position: absolute;
     top: 0%;
     left: -100%;
-    color: var(--text) !important;
+    /* color: var(--text) !important; */
+    color: darkblue !important;
     z-index: 99;
     font-weight: bold;
     transition: .35s all;
@@ -317,9 +324,10 @@ html, body {
 
 
 #total_cal {
-    color: cyan;
+    color: var(--theme);
     font-weight: bold;
-    transform: translateY(-50%);
+    /* transform: translateY(-50%); */
+    margin-top: 2vh;
     font-family: math;
     letter-spacing: 3px;
     border-bottom: 1px solid red;
@@ -383,13 +391,13 @@ html, body {
 @media (max-width:890px) {
 
     #calculator {
+        /* height: 82vh; */
         width: 40vh;
-        height: 82vh;
     }
 
     #calculator>div {
-        font-size: 3.2rem;
-        height: 12.7vh;
+        font-size: 2.2rem;
+        height: 12.5vh;
     }
 
     #calculator>div:hover {
@@ -413,7 +421,7 @@ html, body {
 
 
     #equal {
-        height: 26.6vh !important;
+        height: 26vh !important;
     }
 
 }
@@ -429,14 +437,14 @@ html, body {
 @media (max-width:440px) {
 
     #calculator {
+        /* height: 82vh; */
         width: 40vh;
-        height: 82vh;
     }
 
 
     #calculator>div {
-        font-size: 3rem;
-        height: 12.7vh;
+        font-size: 2.2rem;
+        height: 12.5vh;
     }
 
     #calculator>div:hover {
@@ -454,7 +462,7 @@ html, body {
     }
 
     #equal {
-        height: 26.6vh !important;
+        height: 26vh !important;
     }
 
 }
@@ -465,13 +473,13 @@ html, body {
 
 
     #calculator {
-        height: 75vh;
+        /* height: 75vh; */
         width: 30vh;
     }
 
     #calculator>div {
-        font-size: 2.5rem;
-        height: 10.7vh;
+        font-size: 1.5rem;
+        height: 10vh;
     }
 
     #calculator>div:hover {
@@ -489,7 +497,7 @@ html, body {
     }
 
     #equal {
-        height: 23.6vh !important;
+        height: 21vh !important;
     }
 
 
@@ -499,13 +507,10 @@ html, body {
 @media (max-width : 269px) {
 
     #calculator {
-        height: 65vh;
+        /* height: 65vh; */
         width: 28vh;
     }
 
-    #calculator>div {
-        font-size: 2.5rem;
-    }
 
     #out_btn_div>button {
         font-size: 0.6rem;
@@ -513,8 +518,8 @@ html, body {
     }
 
     #calculator>div {
-        font-size: 2.5rem;
-        height: 8.7vh;
+        font-size: 1rem;
+        height: 8vh;
     }
 
 
@@ -523,7 +528,7 @@ html, body {
     }
 
     #equal {
-        height: 19.6vh !important;
+        height: 17vh !important;
     }
 
 }
