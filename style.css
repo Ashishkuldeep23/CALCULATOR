@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Kenia&family=Public+Sans&family=Roboto&family=Tourney:ital,wght@0,700;1,100&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bodoni+Moda:opsz@6..96&family=Handlee&family=Kosugi+Maru&display=swap');
@@ -17,7 +16,7 @@
     height: 4px;
 }
 
-*::-webkit-scrollbar:hover{
+*::-webkit-scrollbar:hover {
     width: 6px;
     height: 6px;
 }
@@ -30,7 +29,7 @@
 }
 
 
-*::-webkit-scrollbar-thumb:hover{
+*::-webkit-scrollbar-thumb:hover {
     background-color: red;
 }
 
@@ -141,13 +140,13 @@ html, body {
 }
 
 
-#clear{
+#clear {
     color: darkred !important;
-    border: 2px solid darkred; 
+    border: 2px solid darkred;
 }
 
 
-#clear>span{
+#clear>span {
     color: darkred !important;
 }
 
@@ -243,8 +242,8 @@ html, body {
     height: 50%;
     width: 100%;
     font-size: 1.3rem;
-    font-weight: bold;  
-    
+    font-weight: bold;
+
     background-color: #fefe27ea;
 
     backdrop-filter: blur(20px) saturate(1.7);
@@ -283,8 +282,8 @@ html, body {
 
 
 
-#total_cal{
-    color : cyan;
+#total_cal {
+    color: cyan;
     font-weight: bold;
     transform: translateY(-50%);
     font-family: math;
@@ -292,15 +291,16 @@ html, body {
     border-bottom: 1px solid red;
 }
 
-#total_cal>span{
+#total_cal>span {
     /* color: darkcyan; */
     font-size: 1.5rem;
     text-shadow: -2px 2px 1px red;
 }
 
 
-#credit{
+#credit {
     color: cyan;
+    text-shadow: 2px 2px 2px red;
     text-decoration: underline;
     font-family: cursive;
     position: fixed;
@@ -363,6 +363,17 @@ html, body {
         font-size: 1rem;
     }
 
+    .sym>.sing_about {
+        font-size: 1rem;
+    }
+
+
+    .sym:hover>.sing_about {
+        top: 65%;
+        left: 30%;
+    }
+
+
     #equal {
         height: 26.6vh !important;
     }
@@ -399,6 +410,11 @@ html, body {
         font-size: 1rem;
     }
 
+
+    .sym>.sing_about {
+        font-size: 0.9rem;
+    }
+
     #equal {
         height: 26.6vh !important;
     }
@@ -429,6 +445,11 @@ html, body {
         padding: 0;
     }
 
+
+    .sym>.sing_about {
+        font-size: 0.8rem;
+    }
+
     #equal {
         height: 23.6vh !important;
     }
@@ -456,6 +477,11 @@ html, body {
     #calculator>div {
         font-size: 2.5rem;
         height: 8.7vh;
+    }
+
+
+    .sym>.sing_about {
+        font-size: 0.7rem;
     }
 
     #equal {

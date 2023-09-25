@@ -221,7 +221,7 @@ class React {
     setResult() {
         let { symbol, firstNum, secondNum, result, curShow } = this.state
 
-        if (!this.isSymboleClicked) return alert("Click on symbols and give second number please")
+        if (!this.isSymboleClicked) return alert("[400] : All 3 things should given (first num , symbol , second num) for valid calculation.")
 
         // // // Now set history ---->
         if (this.isSymboleClicked) {
@@ -253,6 +253,7 @@ class React {
                 break
             case "%":
                 result = parseFloat(firstNum) % parseFloat(secondNum)
+                if(isNaN(result)) alert("If we Mod a number with 0 then we get NaN in JS , By default. Wrong Input. Clear Calculations plz.")
                 break
             case "**":
                 result = parseFloat(firstNum) ** parseFloat(secondNum)
@@ -268,6 +269,7 @@ class React {
         }
 
 
+        // // // If calculation done then set some values for next calculation --->
         this.state.result = result
         this.state.curShow = result
         this.state.firstNum = result
@@ -280,8 +282,8 @@ class React {
         // // // Make btn visiable
         document.getElementById("back_btn").style.display = "block"
 
-        // // // set total calclation --->
 
+        // // // set total calclation --->
         let getTotalCal = localStorage.getItem("total_calculation")
 
         if(getTotalCal){
@@ -307,7 +309,7 @@ class React {
 
         if (history.length > 0) {
 
-            // // // If history array have only one data
+            // // // If history array have only one data (Hide btn , user not able to see back from last calculation)
             if(history.length === 3){
                 document.getElementById("back_btn").style.display = "none"
             }
