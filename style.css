@@ -140,15 +140,13 @@ html, body {
     height: 13.5vh;
     background-color: var(--theme);
     color: var(--text);
-
     text-shadow: 2px 2px 2px white;
 
     border: 1px solid;
     border-radius: 2vh;
+    font-size: 4rem;
 
     overflow: hidden;
-
-    font-size: 4rem;
 
     display: grid;
     place-items: center;
@@ -171,6 +169,10 @@ html, body {
     scale: 0.8;
 }
 
+
+#calculator>div>p{
+    filter: drop-shadow(1px 1px 2px var(--text));
+}
 
 #clear {
     color: darkred !important;
@@ -209,7 +211,7 @@ html, body {
 
 .sym i {
     color: darkblue !important;
-    filter: drop-shadow(3px 3px 2px var(--text));
+    filter: drop-shadow(1px 1px 2px var(--text));
 }
 
 .sym>.sing_about {
