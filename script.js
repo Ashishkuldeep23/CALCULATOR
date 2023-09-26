@@ -2,7 +2,7 @@
 
 // // // Dark mode logic ---->
 let isBalck = false;
-function changeMode( mode = isBalck) {
+function changeMode(mode = isBalck) {
 
     if (!mode) {
         // // // Dark Mode ---->
@@ -14,20 +14,20 @@ function changeMode( mode = isBalck) {
         document.querySelector("#mode").style.color = "black"
         document.querySelector("#calculator").style.borderColor = "yellowgreen"
 
-        document.querySelector(":root").style.setProperty("--theme" , "#fefe27ea")
-        
-        localStorage.setItem("darkMode" , JSON.stringify(true) )
+        document.querySelector(":root").style.setProperty("--theme", "#fefe27ea")
+
+        localStorage.setItem("darkMode", JSON.stringify(true))
     } else {
         // // // Light Mode ---->
-        
+
         document.querySelector("html").style.backgroundColor = "#ccc"
         document.querySelector("body").style.backgroundColor = "#ccc"
         document.querySelector("#mode").innerHTML = "Dark"
         document.querySelector("#mode").style.backgroundColor = "black"
         document.querySelector("#mode").style.color = "white"
         document.querySelector("#calculator").style.borderColor = "darkmagenta"
-        
-        document.querySelector(":root").style.setProperty("--theme" , "#00ffc1")
+
+        document.querySelector(":root").style.setProperty("--theme", "#00ffc1")
 
         localStorage.removeItem("darkMode")
     }
@@ -36,7 +36,7 @@ function changeMode( mode = isBalck) {
 }
 
 let darkModeValue = localStorage.getItem("darkMode")
-if(darkModeValue){
+if (darkModeValue) {
     // console.log(darkModeValue)
     // isBalck = 
     changeMode(false)
@@ -77,13 +77,13 @@ class React {
         currentShowDiv.scrollLeft = currentShowDiv.scrollWidth
     }
 
-    updateTotalCalculations(){
+    updateTotalCalculations() {
 
         let total_cal = localStorage.getItem("total_calculation")
 
         // console.log(total_cal)
 
-        if(total_cal){
+        if (total_cal) {
             total_cal = JSON.parse(total_cal)
             document.getElementById("total_cal").innerHTML = `Total Calculatios are : <span>${total_cal}</span>`
         }
@@ -112,12 +112,12 @@ class React {
 
         let outAfterAdd;
         if (firstTime) {
-            
+
             // // // if first time point Clicked
-            if(num === "."){
-                outAfterAdd = `0${num}` 
-            }else{
-                outAfterAdd = `${num}`  
+            if (num === ".") {
+                outAfterAdd = `0${num}`
+            } else {
+                outAfterAdd = `${num}`
             }
         } else {
             outAfterAdd = `${this.state.firstNum}${num}`
@@ -142,10 +142,10 @@ class React {
         if (firstTime) {
 
             // // // if first time point Clicked
-            if(num === "."){
-                outAfterAdd = `0${num}` 
-            }else{
-                outAfterAdd = `${num}`  
+            if (num === ".") {
+                outAfterAdd = `0${num}`
+            } else {
+                outAfterAdd = `${num}`
             }
         } else {
             outAfterAdd = `${this.state.secondNum}${num}`
@@ -162,8 +162,21 @@ class React {
 
 
     allClear() {
-        // // // This fn will clear all data --->
 
+
+        // // if any previous data is present then only ask with user or not --->
+
+        let checkHistoryIsPresent = localStorage.getItem("calculatorByAk")
+        if (checkHistoryIsPresent) {
+
+            // // // ask to user delete or not ----------->
+            let ask = confirm("Do you want to remove history of calculations ??")
+            // alert(ask)
+            if (!ask) return console.log("User don't want to remove history.")
+        }
+
+
+        // // // This fn will clear all data --->
         this.state = {
             symbol: "+",
             firstNum: "0",
@@ -222,24 +235,11 @@ class React {
     }
 
 
-    setResult() {
-        let { symbol, firstNum, secondNum, result, curShow } = this.state
+    calculateThis(sym = "+", firstNum = 0, secondNum = 0) {
 
-        if (!this.isSymboleClicked) return alert("[400] : All 3 things should given (first num , symbol , second num) for valid calculation.")
+        let result
 
-        // // // Now set history ---->
-        if (this.isSymboleClicked) {
-
-            let obj = this.state
-            this.historyData.push({ ...obj })
-            // console.log(this.historyData)
-            
-            // // // Store history in localhost of browser -->
-            localStorage.setItem("calculatorByAk", JSON.stringify(this.historyData))
-        }
-
-
-        switch (symbol) {
+        switch (sym) {
             case "+":
                 // console.log(firstNum , cSym , cN2)
                 // console.log("+")
@@ -249,28 +249,65 @@ class React {
                 // console.log("-")
                 result = parseFloat(firstNum) - parseFloat(secondNum)
                 break
+
             case "*":
                 result = parseFloat(firstNum) * parseFloat(secondNum)
                 break
+
             case "/":
                 result = parseFloat(firstNum) / parseFloat(secondNum)
                 break
+
             case "%":
                 result = parseFloat(firstNum) % parseFloat(secondNum)
-                if(isNaN(result)) alert("If we Mod a number with 0 then we get NaN in JS , By default. Wrong Input. Clear Calculations plz.")
+                if (isNaN(result)) alert("If we Mod a number with 0 then we get NaN in JS , By default. Wrong Input. Clear Calculations plz.")
                 break
             case "**":
                 result = parseFloat(firstNum) ** parseFloat(secondNum)
                 break
             default:
                 result = parseFloat(firstNum) + parseFloat(secondNum)
+                break
         }
 
         // // // Some logic (I. if result is not have some value in point then leave as it is , II. if have some value as point then show only two characters after point.)--->
         let isDecimal = result % 1
-        if( isDecimal > 0){
+        if (isDecimal > 0) {
             result = parseFloat(result).toFixed(2)
         }
+
+        return result
+
+    }
+
+
+    setResult() {
+        let { symbol, firstNum, secondNum, result, curShow } = this.state
+
+        if (!this.isSymboleClicked) {
+            return alert("[400] : All 3 things should given (first num , symbol , second num) for valid calculation.")
+        } else {
+            let obj = this.state
+            this.historyData.push({ ...obj })
+            // console.log(this.historyData)
+
+            // // // // Store history in localhost of browser -->
+            localStorage.setItem("calculatorByAk", JSON.stringify(this.historyData))
+        }
+
+        // // // // Now set history ---->
+        // if (this.isSymboleClicked) {
+
+        //     let obj = this.state
+        //     this.historyData.push({ ...obj })
+        //     // console.log(this.historyData)
+
+        //     // // // // Store history in localhost of browser -->
+        //     localStorage.setItem("calculatorByAk", JSON.stringify(this.historyData))
+        // }
+
+
+        result = this.calculateThis(symbol, firstNum, secondNum)
 
 
         // // // If calculation done then set some values for next calculation --->
@@ -278,6 +315,7 @@ class React {
         this.state.curShow = result
         this.state.firstNum = result
         this.state.secondNum = "0"
+
 
 
         // console.log(this.state)
@@ -290,12 +328,12 @@ class React {
         // // // set total calclation --->
         let getTotalCal = localStorage.getItem("total_calculation")
 
-        if(getTotalCal){
+        if (getTotalCal) {
             getTotalCal = JSON.parse(getTotalCal)
             getTotalCal++
-            localStorage.setItem("total_calculation" , JSON.stringify(getTotalCal))
-        }else{
-            localStorage.setItem("total_calculation" , JSON.stringify(1))
+            localStorage.setItem("total_calculation", JSON.stringify(getTotalCal))
+        } else {
+            localStorage.setItem("total_calculation", JSON.stringify(1))
         }
 
         this.updateTotalCalculations()
@@ -307,27 +345,46 @@ class React {
 
         let history = this.historyData
 
-        // console.log(history)
+        console.log(history)
 
-        let sendHistoryObj = { result : history[history.length-1].result }
+        // let sendHistoryObj = { result: history[history.length - 1].result }
+
+        let lastHistoryObj = history[history.length - 1]
 
         if (history.length > 0) {
 
             // // // If history array have only one data (Hide btn , user not able to see back from last calculation)
-            if(history.length === 3){
+            if (history.length <= 3) {
                 document.getElementById("back_btn").style.display = "none"
             }
 
             // this.state = history[history.length - 1]     // // // Update the state with history of last.
 
-            sendHistoryObj.firstNum = history[history.length - 2].firstNum
-            sendHistoryObj.secondNum = history[history.length - 2].secondNum
-            sendHistoryObj.curShow = history[history.length - 2].curShow
-            sendHistoryObj.symbol = history[history.length - 2].symbol
+            let calculateCurrent = this.calculateThis(lastHistoryObj.symbol , lastHistoryObj.firstNum , lastHistoryObj.secondNum) 
 
-            this.historyData.length--       // // // Reduce this size of history.
+            let sendHistoryObj = {
+                // // // Two thing from last history -->
+                result: calculateCurrent , 
+                curShow: calculateCurrent,    // // // .result becoz i want to show result big not second number.
+
+                // // // Next 3 things from second last history -->
+                firstNum: lastHistoryObj.firstNum,
+                secondNum: lastHistoryObj.secondNum,
+                symbol: lastHistoryObj.symbol,
+            }
+
+
+            // sendHistoryObj.firstNum = history[history.length - 2].firstNum
+            // sendHistoryObj.secondNum = history[history.length - 2].secondNum
+            // // sendHistoryObj.curShow = history[history.length - 2].curShow
+            // sendHistoryObj.curShow = history[history.length - 1].result
+            // sendHistoryObj.symbol = history[history.length - 2].symbol
+
+            this.historyData.length--       // // // Reduce this size of history.(Remove last data ---> u can do pop() also.)
+
+            this.updateUI(sendHistoryObj)
         } else {
-            
+
             alert("Calculate something first")
         }
 
@@ -338,7 +395,7 @@ class React {
 
         // console.log(sendHistoryObj)
 
-        this.updateUI(sendHistoryObj)
+        // this.updateUI(sendHistoryObj)
 
     }
 
@@ -349,14 +406,13 @@ class React {
 
 
 let getHistoryFromLoaclHost = localStorage.getItem("calculatorByAk")
-// console.log(getHistoryFromLoaclHost)
+// console.log(JSON.parse(getHistoryFromLoaclHost))
 
 let setHistoy;
-if(getHistoryFromLoaclHost){
+if (getHistoryFromLoaclHost) {
     setHistoy = JSON.parse(getHistoryFromLoaclHost)
-
     // console.log(JSON.parse(getHistoryFromLoaclHost))
-}else{
+} else {
     document.getElementById("back_btn").style.display = "none"
 }
 
@@ -365,19 +421,22 @@ if(getHistoryFromLoaclHost){
 // // // Calling main Class ---->
 let react = new React(setHistoy)
 
-// // // If getting data in localhost then set some ---->
-if(getHistoryFromLoaclHost){
+// // // If getting data in localhost then set some improant variable values like symbole true etc. ---->
+if (getHistoryFromLoaclHost) {
     react.isSymboleClicked = true
-    react.updateSymbol(setHistoy[setHistoy.length-1].symbol)
+    react.updateSymbol(setHistoy[setHistoy.length - 1].symbol)
+
+    react.clickBack()
+} else {
+    react.updateUI()   // // // Upadte ui if getting data --->
 }
-react.updateUI()   // // // Upadte ui if getting data --->
 
 react.updateTotalCalculations()  // // // Update calculations
 
 
 
 // // // All Key Event and corresponding result happend
-window.addEventListener("keydown" , (e)=>{
+window.addEventListener("keydown", (e) => {
 
     // console.log(e)
     // if(e.key === "7"){
@@ -385,51 +444,51 @@ window.addEventListener("keydown" , (e)=>{
     // }
 
 
-    switch(e.key){
+    switch (e.key) {
         case "7":
-            react.setState("anyNum" , 7)
+            react.setState("anyNum", 7)
             break
         case "8":
-            react.setState("anyNum" , 8)
+            react.setState("anyNum", 8)
             break
         case "9":
-            react.setState("anyNum" , 9)
+            react.setState("anyNum", 9)
             break
         case "4":
-            react.setState("anyNum" , 4)
+            react.setState("anyNum", 4)
             break
         case "5":
-            react.setState("anyNum" , 5)
+            react.setState("anyNum", 5)
             break
         case "6":
-            react.setState("anyNum" , 6)
+            react.setState("anyNum", 6)
             break
         case "1":
-            react.setState("anyNum" , 1)
+            react.setState("anyNum", 1)
             break
         case "2":
-            react.setState("anyNum" , 2)
+            react.setState("anyNum", 2)
             break
         case "3":
-            react.setState("anyNum" , 3)
+            react.setState("anyNum", 3)
             break
         case "0":
-            react.setState("anyNum" , 0)
+            react.setState("anyNum", 0)
             break
         case ".":
-            react.setState("anyNum" , ".")
+            react.setState("anyNum", ".")
             break
         case "+":
-            react.setState("symbol" , "+")
+            react.setState("symbol", "+")
             break
         case "-":
-            react.setState("symbol" , "-")
+            react.setState("symbol", "-")
             break
         case "*":
-            react.setState("symbol" , "*")
+            react.setState("symbol", "*")
             break
         case "/":
-            react.setState("symbol" , "/")
+            react.setState("symbol", "/")
             break
         case "Enter":
             react.setResult()
