@@ -55,7 +55,7 @@
 
 
 *::selection {
-    background-color: transparent;
+    background-color: var(--theme);
 }
 
 
