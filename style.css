@@ -105,6 +105,10 @@ html, body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+
+
+    /* padding-top: 50vh; */
 }
 
 
@@ -123,7 +127,7 @@ html, body {
     display: grid;
 
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    /* grid-template-rows: 1fr 1fr 1fr 1fr 1fr; */
 
     gap: 5px;
     padding: 7px;
@@ -137,7 +141,8 @@ html, body {
 
 #calculator>div {
 
-    height: 13.5vh;
+    /* height: 13.5vh; */
+    height: 11vh ;
     background-color: var(--theme);
     color: var(--text);
     text-shadow: 2px 2px 2px white;
@@ -186,7 +191,7 @@ html, body {
 
 
 #equal {
-    height: 28vh !important;
+    height: 23vh !important;
     grid-row-start: 5;
     grid-row-end: 7;
     grid-column-start: 4;
@@ -215,7 +220,7 @@ html, body {
 }
 
 .sym>.sing_about {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     position: absolute;
     top: 0%;
     left: -100%;
@@ -228,14 +233,16 @@ html, body {
 
 
 .sym:hover>.sing_about {
-    top: 65%;
+    top: 70%;
     left: 40%;
 }
 
 
 
 #output_div {
-    /* height: 16vh !important; */
+
+    height: 25vh !important;
+    /* height: 20vh !important; */
     grid-column-start: 1;
     grid-column-end: 5;
     text-align: flex-end;
@@ -377,6 +384,37 @@ html, body {
         font-size: 1rem;
     }
 
+
+    
+    #calculator>div {
+        font-size: 2.1rem;
+        height: 10vh;
+    }
+
+    #calculator>div:hover {
+        padding-left: 1.5rem;
+        padding-top: 1.5rem;
+    }
+
+    #out_btn_div>button {
+        font-size: 0.9rem;
+    }
+
+    .sym>.sing_about {
+        font-size: 0.9rem;
+    }
+
+
+    .sym:hover>.sing_about {
+        top: 65%;
+        left: 30%;
+    }
+
+
+    #equal {
+        height: 21vh !important;
+    }
+
 }
 
 
@@ -398,35 +436,6 @@ html, body {
         width: 40vh;
     }
 
-    #calculator>div {
-        font-size: 2.2rem;
-        height: 12.5vh;
-    }
-
-    #calculator>div:hover {
-        padding-left: 2rem;
-        padding-top: 1.5rem;
-    }
-
-    #out_btn_div>button {
-        font-size: 0.8rem;
-    }
-
-    .sym>.sing_about {
-        font-size: 1rem;
-    }
-
-
-    .sym:hover>.sing_about {
-        top: 65%;
-        left: 30%;
-    }
-
-
-    #equal {
-        height: 26vh !important;
-    }
-
 }
 
 
@@ -446,8 +455,8 @@ html, body {
 
 
     #calculator>div {
-        font-size: 2.2rem;
-        height: 12.5vh;
+        font-size: 2.1rem;
+        height: 10vh;
     }
 
     #calculator>div:hover {
@@ -465,8 +474,9 @@ html, body {
     }
 
     #equal {
-        height: 26vh !important;
+        height: 21vh !important;
     }
+
 
 }
 
@@ -480,9 +490,14 @@ html, body {
         width: 30vh;
     }
 
+    #out_btn_div>button {
+        font-size: 0.6rem;
+    }
+
+
     #calculator>div {
         font-size: 1.5rem;
-        height: 10vh;
+        height: 8vh;
     }
 
     #calculator>div:hover {
@@ -500,7 +515,7 @@ html, body {
     }
 
     #equal {
-        height: 21vh !important;
+        height: 17vh !important;
     }
 
 
