@@ -49,16 +49,26 @@
             <!-- <div class="sym"> <span class="sing_about">Divide</span> <i class="ri-divide-line"></i></div> -->
 
             <div onclick="react.setState('anyNum' , 0)"><p>0</p></div>
-            <div class="sym" onclick="react.setState('symbol' , '+')"> <span class="sing_about">Plus</span> <i class="ri-add-line"></i></div>
 
-            <div class="sym" onclick="react.setState('symbol' , '-')"> <span class="sing_about">Minus</span> <i class="ri-subtract-line"></i></div>
+            <!-- <div class="sym" onclick="react.setState('symbol' , '+')"> <span class="sing_about">Plus</span> <i class="ri-add-line"></i></div> -->
+            <div class="sym" onclick="react.setState('symbol' , '+')"> <span class="sing_about">Plus</span> + </i></div>
+
+            <!-- <div class="sym" onclick="react.setState('symbol' , '-')"> <span class="sing_about">Minus</span> <i class="ri-subtract-line"></i></div> -->
+            <div class="sym" onclick="react.setState('symbol' , '-')"> <span class="sing_about">Minus</span> - </div>
 
             <div onclick="react.setState('anyNum' , '.')"><p>.</p></div>
-            <div class="sym" onclick="react.setState('symbol' , '/')"> <span class="sing_about">Divide</span> <i class="ri-divide-line"></i></div>
 
-            <div class="sym" onclick="react.setState('symbol' , '*')"> <span class="sing_about">Multi</span> <i class="ri-close-line"></i></div>
+            <!-- <div class="sym" onclick="react.setState('symbol' , '/')"> <span class="sing_about">Divide</span> <i class="ri-divide-line"></i></div> -->
 
-            <div class="sym" id="equal" onclick="react.setResult()"><span class="sing_about">Equal</span> <i class="ri-equal-line"></i></div>
+            <div class="sym" onclick="react.setState('symbol' , '/')"> <span class="sing_about">Divide</span> ÷ </div>
+
+            <!-- <div class="sym" onclick="react.setState('symbol' , '*')"> <span class="sing_about">Multi</span> <i class="ri-close-line"></i></div> -->
+
+            <div class="sym" onclick="react.setState('symbol' , '*')"> <span class="sing_about">Multi</span> × </div>
+
+            <!-- <div class="sym" id="equal" onclick="react.setResult()"><span class="sing_about">Equal</span> <i class="ri-equal-line"></i></div> -->
+
+            <div class="sym" id="equal" onclick="react.setResult()"><span class="sing_about">Equal</span> = </div>
             
         </div>
 
@@ -70,5 +80,6 @@
     <span id="credit">By : Ashish Kuldeep</span>
 
     <script src="./script.js"></script>
+    <script src="./sw.js"></script>
 </body>
 </html>

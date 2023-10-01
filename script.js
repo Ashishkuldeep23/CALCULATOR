@@ -345,7 +345,7 @@ class React {
 
         let history = this.historyData
 
-        console.log(history)
+        // console.log(history)
 
         // let sendHistoryObj = { result: history[history.length - 1].result }
 
@@ -503,5 +503,33 @@ window.addEventListener("keydown", (e) => {
 
 
 })
+
+
+
+
+
+
+// // // Service Worker (Checking and registation ) ------->
+
+
+if("serviceWorker" in navigator){
+    // console.log(navigator)
+
+    navigator.serviceWorker.register("./sw.js").then( (res)=>{
+        console.log(res)
+        console.log("Service worked get registred")
+    } ).catch( (e)=>{
+        console.error(e)
+    })
+    
+}else{
+    console.error("ServiceWorker in not supported in your browser.")
+}
+
+
+
+
+
+
 
 

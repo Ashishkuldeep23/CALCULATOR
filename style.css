@@ -437,6 +437,11 @@ html, body {
 
     }
 
+
+    #out_btn_div>button {
+        font-size: 0.7rem;
+    }
+
 }
 
 
