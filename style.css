@@ -293,6 +293,7 @@ html, body {
 
     backdrop-filter: blur(20px) saturate(1.7);
     transition: 0.35s all;
+    z-index: 99;
 }
 
 

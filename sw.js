@@ -33,23 +33,27 @@ this.addEventListener("install", (event) => {
 // // Get files into cache -->
 
 
-this.addEventListener( "fetch" , (event)=>{
-    event.respondWith(
-        caches.match(event.request).then((res)=>{
+this.addEventListener("fetch", (event) => {
 
-            // if(res){
-            //     return res
-            // }
+    if (!navigator.onLine) {
+        event.respondWith(
+            caches.match(event.request).then((res) => {
 
-            // return res || fetch(event.request);
+                if(res){
+                    return res
+                }
 
-            return res 
+                // return res || fetch(event.request);
 
-        }).catch((err)=>{
-            console.error(err)
-        })
-    )
-} )
+                // return res
+
+            }).catch((err) => {
+                console.error(err)
+            })
+        )
+    }
+
+})
 
 
 
