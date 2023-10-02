@@ -11,7 +11,7 @@
 
 /* white */
 :root {
-    --theme: #00ffc1c7;
+    --theme: #00ffbf;
     --text: black;
 }
 
@@ -119,7 +119,14 @@ html, body {
     height: auto;
     width: 65vh;
 
-    /* background-color: red; */
+    /* Both by js */
+    /* For light mode */
+    background-color: #25b08dc7;
+
+    /* For dark mode */
+    /* background-color: #fefe27e4; */
+
+
 
     border: 2px solid darkmagenta;
     border-radius: 2vh;
@@ -151,6 +158,8 @@ html, body {
     border-radius: 2vh;
     font-size: 4rem;
 
+    box-shadow: 2px 2px 10px black;
+
     overflow: hidden;
 
     display: grid;
@@ -159,15 +168,16 @@ html, body {
 }
 
 #calculator>div:hover {
+    z-index: 99;
     cursor: pointer;
     backdrop-filter: blur(20px) saturate(1.7);
 
-    scale: 1.14;
-    box-shadow: 5px 5px 10px gray;
+    scale: 1.15;
+    box-shadow: 5px 5px 10px black;
 
     padding-left: 3rem;
     padding-top: 1rem;
-    border-radius: 5vh;
+    border-radius: 3vh;
 }
 
 #calculator>div:active {
@@ -250,6 +260,8 @@ html, body {
     place-items: end !important;
     padding: 0 1vh;
     position: relative;
+
+    box-shadow: unset !important;
 }
 
 
@@ -322,7 +334,7 @@ html, body {
     overflow-x: auto;
     text-align: end;
     /* font-family: monospace; */
-    font-family: 'Tourney', cursive;
+    font-family: 'Tourney', monospace;
     position: relative;
     font-size: 6rem;
 }

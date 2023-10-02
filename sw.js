@@ -2,7 +2,7 @@
 console.log("ready to work")
 
 
-let cahceData = 'appV1';
+let cahceData = 'calculatorAppByAshish';
 
 
 // self.addEventListener("install")
@@ -42,11 +42,9 @@ this.addEventListener("fetch", (event) => {
                 if(res){
                     return res
                 }
-
                 // return res || fetch(event.request);
-
                 // return res
-
+                // // All 3 are working fine --->
             }).catch((err) => {
                 console.error(err)
             })

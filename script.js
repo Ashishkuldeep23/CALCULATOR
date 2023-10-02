@@ -13,8 +13,9 @@ function changeMode(mode = isBalck) {
         document.querySelector("#mode").style.backgroundColor = "white"
         document.querySelector("#mode").style.color = "black"
         document.querySelector("#calculator").style.borderColor = "yellowgreen"
+        document.querySelector("#calculator").style.backgroundColor = "#8f8f04"
 
-        document.querySelector(":root").style.setProperty("--theme", "#fefe27ea")
+        document.querySelector(":root").style.setProperty("--theme", "#fefe27e4")
 
         localStorage.setItem("darkMode", JSON.stringify(true))
     } else {
@@ -26,6 +27,7 @@ function changeMode(mode = isBalck) {
         document.querySelector("#mode").style.backgroundColor = "black"
         document.querySelector("#mode").style.color = "white"
         document.querySelector("#calculator").style.borderColor = "darkmagenta"
+        document.querySelector("#calculator").style.backgroundColor = "#25b08dc7"
 
         document.querySelector(":root").style.setProperty("--theme", "#00ffc1")
 
@@ -199,7 +201,12 @@ class React {
 
 
     singleClear() {
-        this.state.curShow = this.state.curShow.slice(0, this.state.curShow.length - 1)
+
+        // // // By using .toString() fn i can create string then slice the value. (But not using this now.)
+        // this.state.curShow = this.state.curShow.toString().slice(0, this.state.curShow.toString().length - 1)
+
+        // // // Means set the curShow by reducing one digit in secondNum. 
+        this.state.curShow = this.state.secondNum.slice(0, this.state.secondNum.length - 1)
 
         if (!this.isSymboleClicked) {
             this.state.firstNum = this.state.firstNum.slice(0, this.state.firstNum.length - 1)
@@ -239,6 +246,13 @@ class React {
 
         let result
 
+        // // // if condition as warning if value is 0 (any one) --->
+        // console.log(firstNum , secondNum)
+
+        if( parseFloat(firstNum) === 0 || parseFloat(secondNum) === 0 ){
+            alert("[400] : Don't calculate anything with 0 , this calculation may give you 0 all time or same result.")
+        }
+
         switch (sym) {
             case "+":
                 // console.log(firstNum , cSym , cN2)
@@ -259,8 +273,12 @@ class React {
                 break
 
             case "%":
-                result = parseFloat(firstNum) % parseFloat(secondNum)
-                if (isNaN(result)) alert("If we Mod a number with 0 then we get NaN in JS , By default. Wrong Input. Clear Calculations plz.")
+                // // // not using mod now ---->
+                // result = parseFloat(firstNum) % parseFloat(secondNum)
+                // if (isNaN(result)) alert("If we Mod a number with 0 then we get NaN in JS , By default. Wrong Input. Clear Calculations plz.")
+
+                // // // Code for percent hete --->
+                result = ( parseFloat(firstNum) * parseFloat(secondNum)) / 100
                 break
             case "**":
                 result = parseFloat(firstNum) ** parseFloat(secondNum)
@@ -374,6 +392,11 @@ class React {
             }
 
 
+            this.state = sendHistoryObj
+
+            // console.log(this.state)
+
+
             // sendHistoryObj.firstNum = history[history.length - 2].firstNum
             // sendHistoryObj.secondNum = history[history.length - 2].secondNum
             // // sendHistoryObj.curShow = history[history.length - 2].curShow
@@ -417,7 +440,6 @@ if (getHistoryFromLoaclHost) {
 }
 
 
-
 // // // Calling main Class ---->
 let react = new React(setHistoy)
 
@@ -435,6 +457,12 @@ react.updateTotalCalculations()  // // // Update calculations
 
 
 
+
+// combine two keys logic --->
+
+let enteredKeyAre = []
+
+
 // // // All Key Event and corresponding result happend
 window.addEventListener("keydown", (e) => {
 
@@ -442,6 +470,44 @@ window.addEventListener("keydown", (e) => {
     // if(e.key === "7"){
     //     react.setState("anyNum" , 7)
     // }
+
+    // // // MainTain a array of all keyDown --> 
+    enteredKeyAre.push(e.key)
+
+
+
+    // // // // Clean the arr if it have more then 4 items (first 2 items cleaned everytimes ) --->
+    // if(enteredKeyAre.length > 4){
+
+    //     // console.log(enteredKeyAre.length-3)
+    //     // console.log(enteredKeyAre.length-1)
+
+    //     enteredKeyAre = enteredKeyAre.slice( enteredKeyAre.length-3 , enteredKeyAre.length-1 )
+    // }
+    
+
+
+    // let secondLast = enteredKeyAre[enteredKeyAre.length-2]
+    // if(secondLast === "Control"  && firstLast === "Backspace"){
+    //     react.clickBack()
+    //     return
+    // }
+        
+
+        
+    // // // Improve above logic (Now if user press hold control key and then when ever press backspace key it will call clickBack() fn , currently not checking with last two keys) ------->
+    
+    // // // Best way to back by two combination of keys -->
+
+    let firstLast = enteredKeyAre[enteredKeyAre.length-1]
+    if( enteredKeyAre.includes("Control") && firstLast === "Backspace" ){
+        react.clickBack()
+        return
+    }
+
+
+
+    
 
 
     switch (e.key) {
@@ -509,14 +575,14 @@ window.addEventListener("keydown", (e) => {
 
 
 
-// // // Service Worker (Checking and registation ) ------->
+// // Service Worker (Checking and registation ) ------->
 
 
 if("serviceWorker" in navigator){
     // console.log(navigator)
 
     navigator.serviceWorker.register("./sw.js").then( (res)=>{
-        console.log(res)
+        // console.log(res)  // // Here see all data of sericeWorker.
         console.log("Service worked get registred")
     } ).catch( (e)=>{
         console.error(e)
