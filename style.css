@@ -112,7 +112,7 @@ html, body {
 #menuDiv{
     height: 100dvh;
     width: 100vw;
-    background-color: #fff;
+    background-color: var(--text);
 
     position: absolute;
     z-index: 999;
@@ -131,6 +131,7 @@ html, body {
 #menuDiv > div{
     width: 80%;
     border: 1px solid darkred;
+    background-color: #fff;
     margin: 1vh;
     border-radius: 5vh;
     height: 100dvh;
@@ -138,7 +139,7 @@ html, body {
     text-align: center;
     position: relative;
     padding: 2vh;
-    font-family: sans-serif;
+    font-family: sans-serif !important;
     /* display: flex; */
 }
 
@@ -154,7 +155,7 @@ html, body {
 
 #menuDiv > div ol{
     text-align: start;
-    padding-left: 2vh;
+    padding-left: 3vh;
 }
 
 
