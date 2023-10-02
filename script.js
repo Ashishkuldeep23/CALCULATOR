@@ -1,5 +1,30 @@
 
 
+let isMenuVisiable = false;
+function showAndHideMenu(){
+    let menuDiv = document.querySelector("#menuDiv")
+
+    if(!isMenuVisiable){
+
+        menuDiv.style.bottom = "0"
+        menuDiv.style.right = "0"
+        menuDiv.style.rotate = "0deg"
+
+
+    }else{
+
+        menuDiv.style.bottom = "100%"
+        menuDiv.style.right = "100%"
+        menuDiv.style.rotate = "90deg"
+
+    }
+
+    isMenuVisiable = !isMenuVisiable
+}
+
+
+
+
 // // // Dark mode logic ---->
 let isBalck = false;
 function changeMode(mode = isBalck) {
@@ -91,7 +116,6 @@ class React {
         }
     }
 
-
     updateSymbol(sym) {
         this.state.symbol = sym
 
@@ -106,7 +130,6 @@ class React {
         // // This function return true if number is valid and false if number is invalid.
         return !isNaN(parseFloat(n)) && isFinite(n);
     }
-
 
     updateFirstNum(firstTime = false, num = 0) {
 
@@ -136,7 +159,6 @@ class React {
         this.updateUI()
     }
 
-
     updateSecondNum(firstTime = false, num = 0) {
 
         let outAfterAdd;
@@ -161,7 +183,6 @@ class React {
         // console.log(this.state, this.isSymboleClicked)
         this.updateUI()
     }
-
 
     allClear() {
 
@@ -199,7 +220,6 @@ class React {
         // alert("All Data Removed ☑️")  // // // Not using now
     }
 
-
     singleClear() {
 
         // // // By using .toString() fn i can create string then slice the value. (But not using this now.)
@@ -215,7 +235,6 @@ class React {
         }
         this.updateUI()
     }
-
 
     setState(key = "symbol", value = 0) {
         if (key === "symbol") {
@@ -241,17 +260,16 @@ class React {
         }
     }
 
-
     calculateThis(sym = "+", firstNum = 0, secondNum = 0) {
 
         let result
 
-        // // // if condition as warning if value is 0 (any one) --->
-        // console.log(firstNum , secondNum)
+        // // // // if condition as warning if value is 0 (any one) --->
+        // // console.log(firstNum , secondNum)
 
-        if( parseFloat(firstNum) === 0 || parseFloat(secondNum) === 0 ){
-            alert("[400] : Don't calculate anything with 0 , this calculation may give you 0 all time or same result.")
-        }
+        // if( parseFloat(firstNum) === 0 || parseFloat(secondNum) === 0 ){
+        //     alert("[400] : Don't calculate anything with 0 , this calculation may give you 0 all time or same result.")
+        // }
 
         switch (sym) {
             case "+":
@@ -298,7 +316,6 @@ class React {
 
     }
 
-
     setResult() {
         let { symbol, firstNum, secondNum, result, curShow } = this.state
 
@@ -323,6 +340,13 @@ class React {
         //     // // // // Store history in localhost of browser -->
         //     localStorage.setItem("calculatorByAk", JSON.stringify(this.historyData))
         // }
+
+
+        // // // if condition as warning if value is 0 (any one) (This if condition only when user click equal to not in back calculation now.) --->
+        // console.log(firstNum , secondNum)
+        if( parseFloat(firstNum) === 0 || parseFloat(secondNum) === 0 ){
+            alert("[400] : Don't calculate anything with 0 , this calculation may give you 0 all time or same result.")
+        }
 
 
         result = this.calculateThis(symbol, firstNum, secondNum)
@@ -358,7 +382,6 @@ class React {
 
     }
 
-
     clickBack() {
 
         let history = this.historyData
@@ -369,10 +392,10 @@ class React {
 
         let lastHistoryObj = history[history.length - 1]
 
-        if (history.length > 0) {
+        if (history.length > 1) {
 
-            // // // If history array have only one data (Hide btn , user not able to see back from last calculation)
-            if (history.length <= 3) {
+            // // // If history array left only one data (Hide btn , user not able to see back from last calculation)
+            if (history.length <= 2) {
                 document.getElementById("back_btn").style.display = "none"
             }
 
@@ -408,7 +431,7 @@ class React {
             this.updateUI(sendHistoryObj)
         } else {
 
-            alert("Calculate something first")
+            alert("Calculate something or You are on last calculation.")
         }
 
         // console.log(this.historyData)
@@ -421,8 +444,6 @@ class React {
         // this.updateUI(sendHistoryObj)
 
     }
-
-
 
 }
 
@@ -478,14 +499,11 @@ window.addEventListener("keydown", (e) => {
 
     // // // // Clean the arr if it have more then 4 items (first 2 items cleaned everytimes ) --->
     // if(enteredKeyAre.length > 4){
-
     //     // console.log(enteredKeyAre.length-3)
     //     // console.log(enteredKeyAre.length-1)
-
     //     enteredKeyAre = enteredKeyAre.slice( enteredKeyAre.length-3 , enteredKeyAre.length-1 )
     // }
     
-
 
     // let secondLast = enteredKeyAre[enteredKeyAre.length-2]
     // if(secondLast === "Control"  && firstLast === "Backspace"){
@@ -493,18 +511,30 @@ window.addEventListener("keydown", (e) => {
     //     return
     // }
         
-
         
     // // // Improve above logic (Now if user press hold control key and then when ever press backspace key it will call clickBack() fn , currently not checking with last two keys) ------->
     
     // // // Best way to back by two combination of keys -->
 
     let firstLast = enteredKeyAre[enteredKeyAre.length-1]
-    if( enteredKeyAre.includes("Control") && firstLast === "Backspace" ){
-        react.clickBack()
+
+    // // // Clear history ------->
+    // if( enteredKeyAre.includes("Control") &&( firstLast === "Delete" || firstLast === "C" )){
+    //     react.allClear()
+    //     return
+    // }
+
+    if(firstLast === "Delete" ){
+        react.allClear()
         return
     }
 
+    // // // Go to back calculation 
+
+    if( enteredKeyAre.includes("Control") && ( firstLast === "z" || firstLast === "Z" ) ){
+        react.clickBack()
+        return
+    }
 
 
     
@@ -556,13 +586,15 @@ window.addEventListener("keydown", (e) => {
         case "/":
             react.setState("symbol", "/")
             break
+        case "%":
+            react.setState("symbol", "%")
+            break
         case "Enter":
             react.setResult()
             break
         case "Backspace":
             react.singleClear()
             break
-
         default:
             return
     }

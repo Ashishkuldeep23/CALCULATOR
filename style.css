@@ -71,7 +71,24 @@ html, body {
 }
 
 
+#menuBtn{
+    font-weight: bold;
+    letter-spacing: 1px;
+    position: absolute;
+    left: 5%;
+    top: 1%;
+    padding: 0.5vh;
+    border-radius: .5vh;
+    background-color: darkred;
+    border: 1px solid white;
+    color: white;
+    transition: .35s all;
+}
+
+
 #mode {
+    font-weight: bold;
+    letter-spacing: 1px;
     position: absolute;
     right: 5%;
     top: 1%;
@@ -82,9 +99,93 @@ html, body {
     transition: .35s all;
 }
 
-#mode:active {
+
+#mode:hover , #menuBtn:hover {
+    scale: 1.2;
+}
+
+#mode:active , #menuBtn:active {
     scale: .8;
 }
+
+
+#menuDiv{
+    height: 100dvh;
+    width: 100vw;
+    background-color: #fff;
+
+    position: absolute;
+    z-index: 999;
+
+    right: 100%;
+    bottom: 100%;
+    transition: 1s all;
+
+    rotate: 90deg;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+
+#menuDiv > div{
+    width: 80%;
+    border: 1px solid darkred;
+    margin: 1vh;
+    border-radius: 5vh;
+    height: 100dvh;
+    overflow-y: scroll;
+    text-align: center;
+    position: relative;
+    padding: 2vh;
+    font-family: sans-serif;
+    /* display: flex; */
+}
+
+
+#menuDiv > div h2{
+    margin: 2vh 0;
+}
+
+#menuDiv > div>ul{
+    text-align: start;
+    padding-left: 1vh;
+}
+
+#menuDiv > div ol{
+    text-align: start;
+    padding-left: 2vh;
+}
+
+
+#menuDiv > div >button{
+    padding: 1vh;
+    margin: 1vh 0;
+    position: absolute;
+    right: 0;
+
+    background-color: darkred;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 1vh;
+}
+
+
+#menuDiv > div >button:hover{
+    scale: 1.2;
+}
+#menuDiv > div >button:active{
+    scale: .8;
+}
+
+
+#menuDiv > div >button:last-child{
+    width: 100%;
+    margin-right: 0 !important;
+}
+
+
+
 
 
 #calcu_main {
@@ -377,6 +478,7 @@ html, body {
     position: fixed;
     right: 5px;
     bottom: 3px;
+    z-index: 9999;
 }
 
 
@@ -478,6 +580,11 @@ html, body {
 
 
 @media (max-width:440px) {
+
+    
+#menuDiv > div{
+    width: 95%;
+}
 
     #calculator {
         /* height: 82vh; */

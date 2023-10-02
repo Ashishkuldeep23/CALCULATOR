@@ -1,85 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="!">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator by Ashish Kuldeep</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="shortcut icon" href="https://res.cloudinary.com/dlvq8n2ca/image/upload/v1695482080/qzglyysy2v8xrzebfr3j.png" type="image/x-icon">
-    <!-- Remix icon -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-</head>
-<body>
+
+    <head>
+        <meta charset="!">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculator by Ashish Kuldeep</title>
+        <link rel="stylesheet" href="./style.css">
+        <link rel="shortcut icon"
+            href="https://res.cloudinary.com/dlvq8n2ca/image/upload/v1695482080/qzglyysy2v8xrzebfr3j.png"
+            type="image/x-icon">
+        <!-- Remix icon -->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    </head>
+
+    <body>
 
 
-    <button id="mode" onclick="changeMode()">Dark</button>
+        <button id="mode" onclick="changeMode()">Dark</button>
+
+        <button id="menuBtn" onclick="showAndHideMenu()">Menu</button>
+
+        <div id="menuDiv">
+            <div>
+
+                <button onclick="showAndHideMenu()">X</button>
+
+                <h2>Features of this website</h2>
+                <ul>
+                    <li>Give input by key or by UI and <strong>click = of hit Enter </strong>and you will get right
+                        result.</li>
+                    <li>I user <strong>Service Worker means user can access this website when user is
+                            offline</strong>.(This is <strong>PWA</strong> )</li>
+                    <li>Add this calculator to <strong> your home screen </strong>by menu of browser and you can use it
+                        on <strong>offline mode</strong> also.</li>
+                    <li>Check out <strong>Back key and All clear</strong> Key.</li>
+                    <li><strong>Dark and light mode </strong>also present with theme change.</li>
+                    <li> <strong>Special features </strong>are :-
+                        <ol>
+                            <li>User can <strong>use keys to give input</strong>. (User can pres 0 to 9 and + , - , * ,
+                                / , % , etc.)
+                            </li>
+                            <li>User can user some special key like <strong>( Delete key to clear all
+                                    calculations)</strong> and <strong>( CTRL + Z to back on calculation )</strong>.
+                            </li>
+                            <li>If user will <strong>press Enter</strong> to key then calculate function will called and
+                                user will get result if input is good.</li>
+                        </ol>
+                    </li>
+
+                </ul>
 
 
-    <section id="calcu_main">
-        
-        <div id="calculator">
-            
-            <div id="output_div">
-                <div id="out_btn_div">
-                    <button id="back_btn" onclick="react.clickBack()">Back</button>
-                    <button onclick="react.allClear()">Clear</button>
+                <h2>About Developer</h2>
+                <div>
+                    <p>I'm
+                    <h3>Ashish kuldeep</h3>
+                    </p>
+                    <p>Learning Web delevopmet (MERN stack).</p>
                 </div>
-                <span id="previous_out">0 sy 0</span>
-                <div id="current_out">0000</div>
+
+
+                <button onclick="showAndHideMenu()">CLOSE</button>
             </div>
-
-            
-            <div onclick="react.setState('anyNum' , 7)" ><p>7</p></div>
-            <div onclick="react.setState('anyNum' , 8)" ><p>8</p></div>
-            <div onclick="react.setState('anyNum' , 9)" ><p>9</p></div>
-            <div id="clear" class="sym" onclick="react.singleClear()"> <span class="sing_about">Cut</span> <p>X</p></div>
-            <!-- <div class="sym"> <span class="sing_about">Power</span> Pw</div> -->
-            
-            <div onclick="react.setState('anyNum' , 4)" ><p>4</p></div>
-            <div onclick="react.setState('anyNum' , 5)" ><p>5</p></div>
-            <div onclick="react.setState('anyNum' , 6)" ><p>6</p></div>
-            <div class="sym" onclick="react.setState('symbol' , '**')"> <span class="sing_about">Power</span> <p>Pw</p></div>
-  
-            <!-- <div class="sym"> <span class="sing_about">MOD</span> Mod</div> -->
-            
-            <div onclick="react.setState('anyNum' , 1);"><p>1</p></div>
-            <div onclick="react.setState('anyNum' , 2);" ><p>2</p></div>
-            <div onclick="react.setState('anyNum' , 3);"><p>3</p></div>
-            <div class="sym" onclick="react.setState('symbol' , '%')"> <span class="sing_about">Percent</span> <p>%</p></div>
-            <!-- <div class="sym"> <span class="sing_about">Divide</span> <i class="ri-divide-line"></i></div> -->
-
-            <div onclick="react.setState('anyNum' , 0)"><p>0</p></div>
-
-            <!-- <div class="sym" onclick="react.setState('symbol' , '+')"> <span class="sing_about">Plus</span> <i class="ri-add-line"></i></div> -->
-            <div class="sym" onclick="react.setState('symbol' , '+')"> <span class="sing_about">Plus</span> <p>+</p> </i></div>
-
-            <!-- <div class="sym" onclick="react.setState('symbol' , '-')"> <span class="sing_about">Minus</span> <i class="ri-subtract-line"></i></div> -->
-            <div class="sym" onclick="react.setState('symbol' , '-')"> <span class="sing_about">Minus</span> <p>-</p> </div>
-
-            <div onclick="react.setState('anyNum' , '.')"><p>.</p></div>
-
-            <!-- <div class="sym" onclick="react.setState('symbol' , '/')"> <span class="sing_about">Divide</span> <i class="ri-divide-line"></i></div> -->
-
-            <div class="sym" onclick="react.setState('symbol' , '/')"> <span class="sing_about">Divide</span> <p>÷</p> </div>
-
-            <!-- <div class="sym" onclick="react.setState('symbol' , '*')"> <span class="sing_about">Multi</span> <i class="ri-close-line"></i></div> -->
-
-            <div class="sym" onclick="react.setState('symbol' , '*')"> <span class="sing_about">Multi</span> <p>×</p> </div>
-
-            <!-- <div class="sym" id="equal" onclick="react.setResult()"><span class="sing_about">Equal</span> <i class="ri-equal-line"></i></div> -->
-
-            <div class="sym" id="equal" onclick="react.setResult()"><span class="sing_about">Equal</span> <p>=</p></div>
-            
         </div>
 
-        <p id="total_cal"></p>
 
-    </section>
+        <section id="calcu_main">
+
+            <div id="calculator">
+
+                <div id="output_div">
+                    <div id="out_btn_div">
+                        <button id="back_btn" onclick="react.clickBack()">Back</button>
+                        <button onclick="react.allClear()">Clear</button>
+                    </div>
+                    <span id="previous_out">0 sy 0</span>
+                    <div id="current_out">0000</div>
+                </div>
 
 
-    <span id="credit">By : Ashish Kuldeep</span>
+                <div onclick="react.setState('anyNum' , 7)">
+                    <p>7</p>
+                </div>
+                <div onclick="react.setState('anyNum' , 8)">
+                    <p>8</p>
+                </div>
+                <div onclick="react.setState('anyNum' , 9)">
+                    <p>9</p>
+                </div>
+                <div id="clear" class="sym" onclick="react.singleClear()"> <span class="sing_about">Cut</span>
+                    <p>X</p>
+                </div>
+                <!-- <div class="sym"> <span class="sing_about">Power</span> Pw</div> -->
 
-    <script src="./script.js"></script>
-    <script src="./sw.js"></script>
-</body>
+                <div onclick="react.setState('anyNum' , 4)">
+                    <p>4</p>
+                </div>
+                <div onclick="react.setState('anyNum' , 5)">
+                    <p>5</p>
+                </div>
+                <div onclick="react.setState('anyNum' , 6)">
+                    <p>6</p>
+                </div>
+                <div class="sym" onclick="react.setState('symbol' , '**')"> <span class="sing_about">Power</span>
+                    <p>Pw</p>
+                </div>
+
+                <!-- <div class="sym"> <span class="sing_about">MOD</span> Mod</div> -->
+
+                <div onclick="react.setState('anyNum' , 1);">
+                    <p>1</p>
+                </div>
+                <div onclick="react.setState('anyNum' , 2);">
+                    <p>2</p>
+                </div>
+                <div onclick="react.setState('anyNum' , 3);">
+                    <p>3</p>
+                </div>
+                <div class="sym" onclick="react.setState('symbol' , '%')"> <span class="sing_about">Percent</span>
+                    <p>%</p>
+                </div>
+                <!-- <div class="sym"> <span class="sing_about">Divide</span> <i class="ri-divide-line"></i></div> -->
+
+                <div onclick="react.setState('anyNum' , 0)">
+                    <p>0</p>
+                </div>
+
+                <!-- <div class="sym" onclick="react.setState('symbol' , '+')"> <span class="sing_about">Plus</span> <i class="ri-add-line"></i></div> -->
+                <div class="sym" onclick="react.setState('symbol' , '+')"> <span class="sing_about">Plus</span>
+                    <p>+</p> </i>
+                </div>
+
+                <!-- <div class="sym" onclick="react.setState('symbol' , '-')"> <span class="sing_about">Minus</span> <i class="ri-subtract-line"></i></div> -->
+                <div class="sym" onclick="react.setState('symbol' , '-')"> <span class="sing_about">Minus</span>
+                    <p>-</p>
+                </div>
+
+                <div onclick="react.setState('anyNum' , '.')">
+                    <p>.</p>
+                </div>
+
+                <!-- <div class="sym" onclick="react.setState('symbol' , '/')"> <span class="sing_about">Divide</span> <i class="ri-divide-line"></i></div> -->
+
+                <div class="sym" onclick="react.setState('symbol' , '/')"> <span class="sing_about">Divide</span>
+                    <p>÷</p>
+                </div>
+
+                <!-- <div class="sym" onclick="react.setState('symbol' , '*')"> <span class="sing_about">Multi</span> <i class="ri-close-line"></i></div> -->
+
+                <div class="sym" onclick="react.setState('symbol' , '*')"> <span class="sing_about">Multi</span>
+                    <p>×</p>
+                </div>
+
+                <!-- <div class="sym" id="equal" onclick="react.setResult()"><span class="sing_about">Equal</span> <i class="ri-equal-line"></i></div> -->
+
+                <div class="sym" id="equal" onclick="react.setResult()"><span class="sing_about">Equal</span>
+                    <p>=</p>
+                </div>
+
+            </div>
+
+            <p id="total_cal"></p>
+
+        </section>
+
+
+        <span id="credit">By : Ashish Kuldeep</span>
+
+        <script src="./script.js"></script>
+        <script src="./sw.js"></script>
+    </body>
+
 </html>
