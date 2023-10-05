@@ -67,6 +67,7 @@ html, body {
     background-image: url("https://res.cloudinary.com/dlvq8n2ca/image/upload/v1695482080/qzglyysy2v8xrzebfr3j.png");
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: hidden;
 }
 
 
@@ -111,11 +112,11 @@ html, body {
 #menuDiv {
     height: 100%;
     width: 100vw;
-    background-color: var(--text);
+    background-color: var(--theme);
 
     position: absolute;
     z-index: 999;
-    right: 100%;
+    left: 100%;
     bottom: 100%;
     transition: 1s all;
     rotate: 90deg;
@@ -136,7 +137,8 @@ html, body {
     text-align: center;
     position: relative;
     padding: 2vh;
-    /* display: flex; */
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -169,7 +171,7 @@ html, body {
 
 
 #menuDiv>div>button:hover {
-    scale: 1.2;
+    cursor: pointer;
 }
 
 #menuDiv>div>button:active {
@@ -178,6 +180,8 @@ html, body {
 
 
 #menuDiv>div>button:last-child {
+    position: relative;
+    margin-top: auto;
     width: 100%;
     margin-right: 0 !important;
 }
@@ -253,13 +257,13 @@ html, body {
     height: 11vh;
     background-color: var(--theme);
     color: var(--text);
-    text-shadow: 2px 2px 2px white;
+    text-shadow: 1px 1px 2px white;
 
     border: 1px solid;
     border-radius: 2vh;
     font-size: 4rem;
 
-    box-shadow: 2px 2px 10px black;
+    /* box-shadow: 1px 1px 1px black; */
 
     overflow: hidden;
 
@@ -454,7 +458,7 @@ html, body {
 
 
 #total_cal {
-    color: var(--theme);
+    color: cyan;
     font-weight: bold;
     /* transform: translateY(-50%); */
     margin-top: 2vh;

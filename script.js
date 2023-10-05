@@ -7,14 +7,14 @@ function showAndHideMenu(){
     if(!isMenuVisiable){
 
         menuDiv.style.bottom = "0"
-        menuDiv.style.right = "0"
+        menuDiv.style.left = "0"
         menuDiv.style.rotate = "0deg"
 
 
     }else{
 
         menuDiv.style.bottom = "100%"
-        menuDiv.style.right = "100%"
+        menuDiv.style.left = "100%"
         menuDiv.style.rotate = "90deg"
 
     }
@@ -40,12 +40,13 @@ function changeMode(mode = isBalck) {
         document.querySelector("#calculator").style.borderColor = "yellowgreen"
         document.querySelector("#calculator").style.backgroundColor = "#8f8f04"
 
-        document.querySelector(":root").style.setProperty("--theme", "#fefe27e4")
-
+        document.querySelector(":root").style.setProperty("--theme", "#141102")
+        document.querySelector(":root").style.setProperty("--text", "#FFF")
+        
         localStorage.setItem("darkMode", JSON.stringify(true))
     } else {
         // // // Light Mode ---->
-
+        
         document.querySelector("html").style.backgroundColor = "#ccc"
         document.querySelector("body").style.backgroundColor = "#ccc"
         document.querySelector("#mode").innerHTML = "Dark"
@@ -53,8 +54,9 @@ function changeMode(mode = isBalck) {
         document.querySelector("#mode").style.color = "white"
         document.querySelector("#calculator").style.borderColor = "darkmagenta"
         document.querySelector("#calculator").style.backgroundColor = "#25b08dc7"
-
+        
         document.querySelector(":root").style.setProperty("--theme", "#00ffc1")
+        document.querySelector(":root").style.setProperty("--text", "#000")
 
         localStorage.removeItem("darkMode")
     }
