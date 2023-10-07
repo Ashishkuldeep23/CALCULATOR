@@ -71,6 +71,20 @@ html, body {
 }
 
 
+/* Animation setting Animate CSS */
+
+.animate__animated.animate__flipInY {
+    --animate-delay: .5s;
+}
+
+
+.animate__animated.animate__flip {
+    --animate-delay: 2s;
+}
+
+
+
+
 #menuBtn {
     font-weight: bold;
     letter-spacing: 1px;
@@ -257,7 +271,7 @@ html, body {
     height: 11vh;
     background-color: var(--theme);
     color: var(--text);
-    text-shadow: 1px 1px 2px white;
+    text-shadow: 1px 1px 1px white;
 
     border: 1px solid;
     border-radius: 2vh;

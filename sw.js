@@ -17,6 +17,7 @@ this.addEventListener("install", (event) => {
                 "/index.html",
                 "/style.css",
                 "/script.js",
+                "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css",
                 "https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css",
                 "https://fonts.googleapis.com/css2?family=Kenia&family=Public+Sans&family=Roboto&family=Tourney:ital,wght@0,700;1,100&display=swap",
                 "https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bodoni+Moda:opsz@6..96&family=Handlee&family=Kosugi+Maru&display=swap",
