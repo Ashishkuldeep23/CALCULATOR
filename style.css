@@ -469,7 +469,10 @@ html, body {
 #previous_out {
     font-size: 1.0rem;
     font-weight: bold;
-    margin-top: 70px;
+    margin-top: 10%;
+    width: 80%;
+    text-align: end;
+    /* background-color: red; */
 }
 
 

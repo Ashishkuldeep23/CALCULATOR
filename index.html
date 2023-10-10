@@ -75,7 +75,7 @@
 
             <div class="animate__animated animate__slideInUp" id="calculator">
 
-                <div class=" animate__animated animate__flip" id="output_div">
+                <div class=" animate__animated animate__flip animate__slow" id="output_div">
                     <div id="out_btn_div">
                         <button id="back_btn" onclick="react.clickBack()">Back</button>
                         <button onclick="react.allClear()">Clear</button>
@@ -83,107 +83,95 @@
                     <span id="previous_out">0 sy 0</span>
                     <div id="current_out">0000</div>
                 </div>
-
-
-                <div class=" animate__animated animate__flipInX animate__delay-1s" onclick="react.setState('anyNum' , 7)">
-                    <p>7</p>
-                </div>
-                <div class=" animate__animated animate__flipInX animate__delay-1s" onclick="react.setState('anyNum' , 8)">
-                    <p>8</p>
-                </div>
-                <div class=" animate__animated animate__flipInX animate__delay-1s" onclick="react.setState('anyNum' , 9)">
-                    <p>9</p>
-                </div>
-                <div class=" animate__animated animate__flipInX animate__delay-1s sym" id="clear" onclick="react.singleClear()"> <span class="sing_about">Cut</span>
-                    <p>X</p>
-                </div>
-                <!-- <div class="sym"> <span class="sing_about">Power</span> Pw</div> -->
-
-                <div class=" animate__animated animate__flipInX animate__delay-1s" onclick="react.setState('anyNum' , 4)">
-                    <p>4</p>
-                </div>
-                <div class=" animate__animated animate__flipInX animate__delay-1s" onclick="react.setState('anyNum' , 5)">
-                    <p>5</p>
-                </div>
-                <div class=" animate__animated animate__flipInX animate__delay-1s" onclick="react.setState('anyNum' , 6)">
-                    <p>6</p>
-                </div>
-
-
-                <div class=" animate__animated animate__flipInX animate__delay-1s sym" onclick="react.setState('symbol' , '+')"> <span class="sing_about">Plus</span>
-                    <p>+</p> </i>
-                </div>
-
-
-                <!-- <div class="sym"> <span class="sing_about">MOD</span> Mod</div> -->
-
-                <div class=" animate__animated animate__flipInX animate__delay-1s" onclick="react.setState('anyNum' , 1);">
-                    <p>1</p>
-                </div>
-                <div class=" animate__animated animate__flipInX animate__delay-1s" onclick="react.setState('anyNum' , 2);">
-                    <p>2</p>
-                </div>
-                <div class=" animate__animated animate__flipInX animate__delay-1s" onclick="react.setState('anyNum' , 3);">
-                    <p>3</p>
-                </div>
-
-
-                <div class=" animate__animated animate__flipInX animate__delay-1s sym" onclick="react.setState('symbol' , '-')"> <span class="sing_about">Minus</span>
-                    <p>-</p>
-                </div>
-
-
-                <!-- <div class="sym"> <span class="sing_about">Divide</span> <i class="ri-divide-line"></i></div> -->
-
-                <div class=" animate__animated animate__flipInX animate__delay-1s" onclick="react.setState('anyNum' , 0)">
-                    <p>0</p>
-                </div>
-
-                <!-- <div class="sym" onclick="react.setState('symbol' , '+')"> <span class="sing_about">Plus</span> <i class="ri-add-line"></i></div> -->
-
-
-                
-                <div class=" animate__animated animate__flipInX animate__delay-1s sym" onclick="react.setState('symbol' , '/')"> <span class="sing_about">Divide</span>
-                    <p>÷</p>
-                </div>
-
-                <!-- <div class="sym" onclick="react.setState('symbol' , '*')"> <span class="sing_about">Multi</span> <i class="ri-close-line"></i></div> -->
-
-                <div class=" animate__animated animate__flipInX animate__delay-1s sym" onclick="react.setState('symbol' , '*')"> <span class="sing_about">Multi</span>
-                    <p>×</p>
-                </div>
-
-
-                <div class=" animate__animated animate__flipInX animate__delay-1s " onclick="react.setState('anyNum' , '.')">
-                    <p>.</p>
-                </div>
-
-                <!-- <div class="sym" onclick="react.setState('symbol' , '/')"> <span class="sing_about">Divide</span> <i class="ri-divide-line"></i></div> -->
-
-                <div class=" animate__animated animate__flipInX animate__delay-1s sym" onclick="react.setState('symbol' , '%')"> <span class="sing_about">Percent</span>
-                    <p>%</p>
-                </div>
-
-                <!-- <div class="sym" onclick="react.setState('symbol' , '-')"> <span class="sing_about">Minus</span> <i class="ri-subtract-line"></i></div> -->
-                <div class=" animate__animated animate__flipInX animate__delay-1s sym" onclick="react.setState('symbol' , '**')"> <span class="sing_about">Power</span>
+                  
+                <div class=" animate__animated animate__flipInX animate__delay-1s animate__slow sym" onclick="react.setState('symbol' , '**')"> <span class="sing_about">Power</span>
                     <p>Pw</p>
                 </div>
 
 
-                <!-- <div class="sym" id="equal" onclick="react.setResult()"><span class="sing_about">Equal</span> <i class="ri-equal-line"></i></div> -->
+                <div class=" animate__animated animate__flipInX animate__delay-1s animate__slow sym" onclick="react.setState('symbol' , '*')"> <span class="sing_about">Multi</span>
+                    <p>×</p>
+                </div>
 
-                <div class=" animate__animated animate__flipInX animate__delay-1s sym" id="equal" onclick="react.setResult()"><span class="sing_about">Equal</span>
+                <div class=" animate__animated animate__flipInX animate__delay-1s animate__slow sym" onclick="react.setState('symbol' , '/')"> <span class="sing_about">Divide</span>
+                    <p>÷</p>
+                </div>
+
+
+                <div class=" animate__animated animate__flipInX animate__delay-1s animate__slow sym" id="clear" onclick="react.singleClear()"> <span class="sing_about">Cut</span>
+                    <p>X</p>
+                </div>
+
+                <div class=" animate__animated animate__flipInX animate__delay-1s animate__slow" onclick="react.setState('anyNum' , 7)">
+                    <p>7</p>
+                </div>
+                <div class=" animate__animated animate__flipInX animate__delay-1s animate__slow" onclick="react.setState('anyNum' , 8)">
+                    <p>8</p>
+                </div>
+                <div class=" animate__animated animate__flipInX animate__delay-1s animate__slow" onclick="react.setState('anyNum' , 9)">
+                    <p>9</p>
+                </div>
+
+
+
+                <div class=" animate__animated animate__flipInX animate__delay-1s animate__slow sym" onclick="react.setState('symbol' , '+')"> <span class="sing_about">Plus</span>
+                    <p>+</p> </i>
+                </div>
+
+                <div class=" animate__animated animate__flipInX animate__delay-1s animate__slow" onclick="react.setState('anyNum' , 4)">
+                    <p>4</p>
+                </div>
+                <div class=" animate__animated animate__flipInX animate__delay-1s animate__slow" onclick="react.setState('anyNum' , 5)">
+                    <p>5</p>
+                </div>
+                <div class=" animate__animated animate__flipInX animate__delay-1s animate__slow" onclick="react.setState('anyNum' , 6)">
+                    <p>6</p>
+                </div>
+
+
+                
+                <div class=" animate__animated animate__flipInX animate__delay-1s animate__slow sym" onclick="react.setState('symbol' , '-')"> <span class="sing_about">Minus</span>
+                    <p>-</p>
+                </div>
+
+                <div class=" animate__animated animate__flipInX animate__delay-1s animate__slow" onclick="react.setState('anyNum' , 1);">
+                    <p>1</p>
+                </div>
+                <div class=" animate__animated animate__flipInX animate__delay-1s animate__slow" onclick="react.setState('anyNum' , 2);">
+                    <p>2</p>
+                </div>
+                <div class=" animate__animated animate__flipInX animate__delay-1s animate__slow" onclick="react.setState('anyNum' , 3);">
+                    <p>3</p>
+                </div>
+
+
+
+
+
+                <div class=" animate__animated animate__flipInX animate__delay-1s animate__slow" onclick="react.setState('anyNum' , 0)">
+                    <p>0</p>
+                </div>
+
+                <div class=" animate__animated animate__flipInX animate__delay-1s animate__slow " onclick="react.setState('anyNum' , '.')">
+                    <p>.</p>
+                </div>
+
+                <div class=" animate__animated animate__flipInX animate__delay-1s animate__slow sym" onclick="react.setState('symbol' , '%')"> <span class="sing_about">Percent</span>
+                    <p>%</p>
+                </div>
+
+                <div class=" animate__animated animate__flipInX animate__delay-1s animate__slow sym" id="equal" onclick="react.setResult()"><span class="sing_about">Equal</span>
                     <p>=</p>
                 </div>
 
             </div>
 
-            <p class="animate__animated animate__wobble" id="total_cal"></p>
+            <p class="animate__animated animate__wobble animate__slow " id="total_cal"></p>
 
         </section>
 
 
-        <span class="animate__animated animate__heartBeat" id="credit"><a href="https://ashish-kuldeep-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer">By : Ashish Kuldeep</a></span>
+        <span class="animate__animated animate__heartBeat animate__slow" id="credit"><a href="https://ashish-kuldeep-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer">By : Ashish Kuldeep</a></span>
 
         <script src="./script.js"></script>
         <script src="./sw.js"></script>
